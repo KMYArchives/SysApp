@@ -1,0 +1,80 @@
+// Hide element
+.hide{ display: none; }
+
+// Right details
+.rig-det{ width: 70%; }
+
+// Auto and alway show
+.auto-show{ display: block; }
+
+// Actived class
+.actived{ background: $firstColor; }
+
+// Italic text
+.italic{
+	font-style: italic;
+	text-transform: capitalize;
+}
+
+// Hover item
+.hover:hover{
+	outline: none;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+// Trial class
+.trial{ background: $redColor; }
+
+// Mask effect for used together with modals windows
+.mask{
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: fixed;
+	overflow: hidden;
+	@include transition();
+	z-index: 99999999999999;
+	background: rgba(0, 0, 0, .75);
+}
+
+/* IMPORTANT CLASSES */
+
+// No margin left
+.nml{ margin-left: 0 !important; }
+
+// Always show
+.always-show{ display: block !important; }
+
+// Remove border's
+.no-bdr{ border: none !important; }
+.no-bdr-top{ border-top: none !important; }
+.no-bdr-lef{ border-left: none !important; }
+.no-bdr-rig{ border-right: none !important; }
+.no-bdr-bot{ border-bottom: none !important; }
+
+// Add border's
+.bdr{ border: $border_size solid $borderColor !important; }
+.bdr-top{ border-top: $border_size solid $borderColor !important; }
+.bdr-lef{ border-left: $border_size solid $borderColor !important; }
+.bdr-rig{ border-right: $border_size solid $borderColor !important; }
+.bdr-bot{ border-bottom: $border_size solid $borderColor !important; }
+
+// Float let and right
+.left{ float: left !important; }
+.right{ float: right !important; }
+
+// Error class
+.error{ color: $redColor !important; }
+
+// Cursor pointer
+.pointer{ cursor: pointer !important; }
+
+// Text align's classes
+.ta-left{ text-align: left !important; }
+.ta-right{ text-align: right !important; }
+.ta-center{ text-align: center !important; }

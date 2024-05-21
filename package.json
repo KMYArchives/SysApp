@@ -1,0 +1,89 @@
+{
+	"name": "sysinfo",
+	"version": "1.0.0",
+	"author": "Sacnox",
+	"repository": "https://bitbucket.org/fuxlabs/dbpro-app",
+	"description": "The most complete software of database backup on market.",
+	"main": "main.js",
+	"build": {
+		"appId": "com.dbackpro.app",
+		"icon": "assets/imgs/dbp.ico",
+		"win": {
+			"target": "nsis",
+			"icon": "assets/imgs/dbp.ico"
+		},
+		"dmg": {
+			"contents": [
+				{
+					"x": 110,
+					"y": 150
+				},
+				{
+					"x": 240,
+					"y": 150,
+					"type": "link",
+					"path": "/Applications"
+				}
+			]
+		},
+		"linux": {
+			"category": "Development",
+			"icon": "assets/imgs/dbp.ico",
+			"maintainer": "Sacnox <support@sacnox.com>",
+			"target": [
+				"deb",
+				"rpm",
+				"snap",
+				"AppImage"
+			]
+		}
+	},
+	"scripts": {
+		"js": "gulp js",
+		"sass": "gulp sass",
+		"start": "electron .",
+		"js-nw": "gulp bundle",
+		"dist": "electron-builder",
+		"dpkg": "yarn remove gulp gulp-concat gulp-sass gulp-babel @babel/core @babel/preset-env gulp-plumber gulp-uglify gulp-watch",
+		"ipkg": "yarn add --dev gulp gulp-concat gulp-sass gulp-babel @babel/core @babel/preset-env gulp-plumber gulp-uglify gulp-watch",
+		"build-linux": "electron-packager . --out=dist/linux --platform=linux --arch=x64 --config.productName=dbackpro --icon=assets/imgs/icon.ico --asar=true --overwrite",
+		"build-windows": "electron-packager . --out=dist/windows --platform=win32 --arch=x64 --config.productName=dbackpro --icon=assets/imgs/icon.ico --asar=false --overwrite",
+		"build-darwin": "electron-packager . --out=dist/darwin --platform=darwin --arch=x64 --config.productName=dbackpro --icon=assets/imgs/icon.icns --asar=false --overwrite"
+	},
+	"dependencies": {
+		"axios": "^0.19.0",
+		"csvtojson": "^2.0.10",
+		"fs-extra": "^8.1.0",
+		"humanize": "^0.0.9",
+		"jquery": "^3.4.1",
+		"jspdf": "^1.5.3",
+		"jspdf-autotable": "^3.2.4",
+		"lodash": "^4.17.15",
+		"marked": "^0.7.0",
+		"open": "^6.4.0",
+		"powershell": "^2.3.1",
+		"proglistr": "^1.4.0",
+		"shelljs": "^0.8.3",
+		"sudo-prompt": "^9.0.0",
+		"systeminformation": "^4.14.8",
+		"tasklist": "^4.0.0",
+		"winreg": "^1.2.4",
+		"wmic-js": "^0.0.3"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.5.5",
+		"@babel/preset-env": "^7.6.0",
+		"electron": "4.0.2",
+		"electron-builder": "^21.2.0",
+		"electron-packager": "^14.0.5",
+		"gulp": "^4.0.2",
+		"gulp-babel": "^8.0.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-plumber": "^1.2.1",
+		"gulp-sass": "^4.0.2",
+		"gulp-uglify": "^3.0.2",
+		"gulp-watch": "^5.0.1",
+		"gulp-zip": "^5.0.0",
+		"webpack": "^4.36.1"
+	}
+}

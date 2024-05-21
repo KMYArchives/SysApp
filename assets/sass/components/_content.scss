@@ -1,0 +1,414 @@
+.clients{
+	top: 0;
+	right: 0;
+	height: auto;
+	width: 16.2em;
+	display: none;
+	position: fixed;
+	overflow: hidden;
+	min-height: 19.7em;
+	z-index: 999999999;
+	background: $firstColor;
+	margin-top: $header_size - .25;
+	border-left: $border_size solid $borderColor;
+	border-bottom: $border_size solid $borderColor;
+
+	.accordion{
+		height: 3em;
+		outline: none;
+		position: relative;
+		background: $secondColor;
+		font-size: $smallFont + .015;
+		@include linear(to top left, $firstColor 0%, $secondColor 100%);
+
+		.text{
+			float: left;
+			line-height: 3em;
+			padding-left: $padding4;
+		}
+
+		.fas, .far, .fab{
+			width: 3em;
+			float: right;
+			cursor: pointer;
+			line-height: 3em;
+			text-align: center;
+			@include hover(inherit, $greenColor);
+		}
+	}
+
+	.content{
+		overflow: auto;
+		max-height: 15.5em;
+		position: relative;
+		padding: $padding_base;
+		border-top: $border_size solid $borderColor;
+
+		.item{
+			outline: none;
+			display: block;
+			color: inherit;
+			cursor: pointer;
+			text-align: left;
+			text-decoration: none;
+			padding: $padding_base;
+			box-sizing: border-box;
+			font-size: $smallFont - .025;
+			border: $border_size solid transparent;
+
+			.fas, .far, .fab{ line-height: $padding_base + $padding3; }
+			.fa-times:hover, .fa-times:focus{ color: $redColor !important; }
+
+			.right{
+				float: right;
+				&:hover, &:focus{ color: $greenColor; }
+			}
+
+			.left{
+				float: left;
+				margin-right: $padding_base;
+			}
+	
+			&:hover, &:focus{
+				border-color: $borderColor;
+				@include linear(to top left, $firstColor 0%, $secondColor 100%);
+			}
+		}
+
+		@include scrollbar(true);
+	}
+}
+
+.sub-items{
+	width: 25%;
+	float: left;
+	height: 85.5%;
+	position: fixed;
+	background: $firstColor;
+	margin-top: $header_size * 2 - $padding2;
+	border-right: $border_size solid $borderColor;
+
+	.content{
+		height: auto;
+		overflow: auto;
+		max-height: 90%;
+		text-align: center;
+		padding-top: $padding_base;
+		padding-bottom: $padding_base;
+
+		.item{
+			outline: none;
+			display: block;
+			cursor: pointer;
+			text-align: left;
+			padding: $padding_base;
+			margin-bottom: $padding2;
+			margin-left: $padding_base;
+			margin-right: $padding_base;
+			font-size: $smallFont - .025;
+			border: $border_size solid transparent;
+			
+			&:hover, &:focus{
+				border-color: $borderColor;
+				@include linear(to top left, $firstColor 0%, $secondColor 100%);
+			}
+		}
+
+		.actived{
+			border-color: $borderColor;
+			@include linear(to top left, $firstColor 0%, $secondColor 100%);
+		}
+
+		@include scrollbar();
+	}
+}
+
+.container{
+	width: 75%;
+	height: 87.3%;
+	overflow: auto;
+	position: fixed;
+	margin-left: 25%;
+	margin-top: $header_size * 2 - $padding2;
+
+	.title{
+		height: 3em;
+		background: $firstColor;
+		font-size: $smallFont + .05;
+		margin-top: $border_size + .005;
+		border-left: $border_size solid $borderColor;
+		border-bottom: $border_size solid $borderColor;
+
+		.label{
+			float: left;
+			line-height: 3em;
+			margin-left: $padding_base;
+		}
+
+		.tabs{
+			float: left;
+			width: 10em;
+			margin-left: 0;
+			cursor: pointer;
+			line-height: 3em;
+			text-align: center;
+			border-right: $border_size solid $borderColor;
+			&:hover, &:focus{ @include linear(to top left, $firstColor 0%, $secondColor 100%); }
+		}
+
+		.actived{ @include linear(to top left, $firstColor 0%, $secondColor 100%); }
+	}
+
+	.item{
+		padding: $padding_base;
+		font-size: $smallFont - .025;
+		border-bottom: $border_size solid $borderColor;
+
+		.fas, .far, .fab{
+			opacity: 0;
+			float: right;
+			outline: none;
+			color: inherit;
+			cursor: pointer;
+			text-align: center;
+			text-decoration: none;
+			width: $padding_base * 2;
+
+			&:hover, &:focus{
+				opacity: .75;
+				color: $greenColor;
+				@include transition(opacity .8s);
+			}
+
+			&:active, &:visited{ color: $fontColor; }
+		}
+
+		&:last-child{ border-bottom: none; }
+
+		&:hover, &:focus{
+			.far, .fas, .fab{ opacity: 1; }
+		}
+	}
+
+	.storage{
+		outline: none;
+		cursor: pointer;
+		margin: $padding_base;
+		padding: $padding_base;
+		margin-bottom: $padding3;
+		font-size: $smallFont + .1;
+		height: $padding_base * 7.5;
+		border: $border_size solid transparent;
+
+		.fas, .far, .fab{
+			float: left;
+			font-size: 150%;
+			padding-top: $padding_base;
+			padding-right: $padding_base;
+			padding-bottom: $padding_base;
+		}
+
+		.label{
+			width: 90%;
+			float: left;
+			display: block;
+			padding-left: $padding3 / 2;
+			margin-bottom: $padding_base;
+
+			.porcent{
+				opacity: 0;
+				float: right;
+			}
+		}
+
+		.text{
+			opacity: 0;
+			float: left;
+			display: block;
+			font-size: $smallFont;
+			padding-left: $padding3 / 2;
+			margin-top: $padding_base * 2.25;
+		}
+
+		.button{
+			width: 7em;
+			float: right;
+			cursor: pointer;
+			text-align: center;
+			font-size: $smallFont;
+			padding: $padding_base;
+			margin-right: $padding2;
+			margin-top: $padding_base;
+			border: $border_size solid $borderColor;
+			&:hover, &:focus{ @include linear(to top left, $firstColor 0%, $secondColor 100%); }
+		}
+
+		.details{
+			float: left;
+			display: block;
+			padding-top: $padding_base;
+			margin-bottom: $padding_base;
+			padding-bottom: $padding_base;
+		}
+
+		.bar{
+			width: 88%;
+			padding: 1%;
+			height: $padding_base;
+			background: $firstColor;
+			margin-top: $padding_base * 2;
+			margin-left: $padding_base * 3.2;
+			border: $border_size solid $borderColor;
+			
+			.used{
+				width: 50%;
+				height: 100%;
+				background: $fontColor;
+			}
+		}
+
+		&:hover, &:focus{
+			border-color: $borderColor;
+			@include linear(to top left, $firstColor 0%, $secondColor 100%);
+			.text, .porcent{ opacity: .8; }
+		}
+	}
+
+	.details{
+		height: 85.7%;
+		overflow: auto;
+		@include scrollbar();
+	}
+
+	.right-details{
+		top: 0;
+		right: 0;
+		width: 30%;
+		height: 100%;
+		overflow: hidden;
+		position: absolute;
+		border-left: $border_size solid $borderColor;
+
+		.details{ margin-right: -$border_size; }
+
+		@include scrollbar();
+	}
+
+	@include scrollbar();
+}
+
+.def-modal{
+	top: 50%;
+	left: 50%;
+	width: 20em;
+	height: auto;
+	display: none;
+	position: fixed;
+	margin-top: -12em;
+	margin-left: -10em;
+	z-index: 99999999999999;
+	@include box-shadow($shadow_size);
+	border: $border_size solid $borderColor;
+	@include linear(to top left, $firstColor 0%, $secondColor 100%);
+
+	.header{
+		background: $firstColor;
+		margin-top: $border_size;
+		height: $padding_base * 3;
+		line-height: $padding_base * 3;
+		border-bottom: $border_size solid $borderColor;
+		
+		.label{
+			float: left;
+			margin-left: $padding_base;
+			font-size: $smallFont + .05;
+		}
+
+		.fas, .far, .fab{
+			float: right;
+			cursor: pointer;
+			margin-right: $padding_base;
+			line-height: $padding_base * 3;
+
+			@include hover(transparent, $blueColor);
+		}
+
+		.fa-times{ @include hover(transparent, $redColor); }
+	}
+
+	.body{
+		width: 100%;
+		height: 82.8%;
+		overflow: auto;
+		position: relative;
+		font-size: $smallFont + .05;
+
+		.label{
+			color: inherit;
+			margin-top: 3%;
+			margin-bottom: 3%;
+			margin-left: 5.5%;
+			font-size: $smallFont + .05;
+		}
+
+		input{
+			float: left;
+			width: 82.5%;
+			outline: none;
+			color: inherit;
+			margin-left: 5%;
+			font-weight: 600;
+			margin-bottom: 3%;
+			padding: $padding_base;
+			font-size: $smallFont + .1;
+			border: $border_size solid $borderColor;
+
+			@include hover();
+			@include placeholder();
+		}
+
+		select{
+			float: left;
+			width: 90.5%;
+			outline: none;
+			color: inherit;
+			cursor: pointer;
+			margin-left: 5%;
+			font-weight: 600;
+			margin-bottom: 3%;
+			padding: $padding_base;
+			font-size: $smallFont + .1;
+			border: $border_size solid $borderColor;
+
+			@include hover();
+			@include select();
+		}
+
+		.mid{
+			float: left !important;
+			width: 38.7% !important;
+			text-align: center !important;
+			&:last-child{ margin-left: -3% !important; }
+		}
+
+		@include scrollbar();
+	}
+
+	.footer{
+		margin-top: 2%;
+		.button{
+			width: 8em;
+			float: right;
+			color: inherit;
+			cursor: pointer;
+			font-weight: 600;
+			margin-bottom: 5%;
+			padding: $padding4;
+			text-align: center;
+			margin-right: 4.5%;
+			font-size: $smallFont;
+			border: $border_size solid $borderColor;
+			@include hover($secondColor);
+		}
+	}
+}

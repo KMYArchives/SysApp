@@ -1,0 +1,102 @@
+@mixin filter($filter-type, $filter-amount){
+	filter: $filter-type + unquote('(#{$filter-amount})');
+	-ms-filter: $filter-type + unquote('(#{$filter-amount})');
+	-moz-filter: $filter-type + unquote('(#{$filter-amount})');
+	-webkit-filter: $filter-type + unquote('(#{$filter-amount})');
+}
+
+@mixin border-radius($radius){
+	border-radius: $radius;
+	-ms-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+}
+
+@mixin box-shadow($shadow, $inset: false){
+	@if $inset {
+		box-shadow: inset $shadow $shadowColor;
+		-ms-box-shadow: inset $shadow $shadowColor;
+		-moz-box-shadow: inset $shadow $shadowColor;
+		-webkit-box-shadow: inset $shadow $shadowColor;
+	} @else {
+		box-shadow: $shadow $shadowColor;
+		-ms-box-shadow: $shadow $shadowColor;
+		-moz-box-shadow: $shadow $shadowColor;
+		-webkit-box-shadow: $shadow $shadowColor;
+	}
+}
+
+@mixin text-shadow($tshadow_size){
+	text-shadow: $tshadow_size $tshadow_size $shadowColor;
+	-ms-text-shadow: $tshadow_size $tshadow_size $shadowColor;
+	-moz-text-shadow: $tshadow_size $tshadow_size $shadowColor;
+	-webkit-text-shadow: $tshadow_size $tshadow_size $shadowColor;
+}
+
+@mixin transition($transition: false){
+	@if $transition {
+		transition: $transition;
+		-ms-transition: -ms-#{$transition};
+		-moz-transition: -moz-#{$transition};
+		-webkit-transition: -webkit-#{$transition};
+	} @else {
+		transition: 150ms ease-in;
+		-ms-transition: 150ms ease-in;
+		-moz-transition: 150ms ease-in;
+		-webkit-transition: 150ms ease-in;
+	}
+}
+
+@mixin no-text-select{
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+@mixin scrollbar($border-top: false, $border-bot: false){
+	&::-webkit-scrollbar{
+		position: fixed;
+		width: $padding5;
+		z-index: 9999999;
+		background: $firstColor;
+		border-left: $border_size solid $borderColor;
+
+		@if $border-top { border-top: $border_size solid $borderColor; }
+		@if $border-bot { border-bottom: $border_size solid $borderColor; }
+	}
+
+	&::-webkit-scrollbar-thumb{ background: $borderColor; }
+}
+
+@mixin input-placeholder{
+	&.placeholder{ @content; }
+	&:-moz-placeholder{ @content; }
+	&::-moz-placeholder{ @content; }
+	&:-ms-input-placeholder{ @content; }
+	&::-webkit-input-placeholder{ @content; }
+}
+
+@mixin placeholder{
+	@include input-placeholder{
+		opacity: .7;
+		font-weight: 500;
+		color: $fontColor;
+	}
+}
+
+@mixin hover($background: $secondColor, $color: inherit, $transition: 1.2s){
+	&:hover, &:focus{
+		outline: none;
+		color: $color;
+		background-color: $background;
+		@include transition(background-color $transition);
+	}
+}
+
+@mixin select{
+	appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}

@@ -1,0 +1,18 @@
+@import '_extend';
+@import '_autoload';
+
+body{
+    margin: 0;
+	padding: 0;
+	overflow: hidden;
+	color: $fontColor;
+	font-family: $font;
+	font-size: $fontSize;
+	background: $bgColor;
+	@include scrollbar();
+    @include no-text-select();
+    
+    @import 'components/_header';
+    @import 'components/_classes';
+    @import 'components/_content';
+}
